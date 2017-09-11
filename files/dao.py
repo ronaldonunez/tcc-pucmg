@@ -20,8 +20,20 @@ class Disciplina(BaseModel):
 	professor = ForeignKeyField(Professor)
 	curso = ForeignKeyField(Curso)
 
+class Aluno(BaseModel):
+	nome = CharField()
+	curso = ForeignKeyField(Curso)
+	matricula = IntegerField()
+
+class Historico(BaseModel):
+	disciplina = ForeignKeyField(Disciplina)
+	aluno = ForeignKeyField(Aluno)
+	nota = IntegerField()
+
 if __name__ == '__main__':
 	try:
+		Aluno.create_table()
+		Historico.create_table()
 		Curso.create_table()
 		Disciplina.create_table()
 	except:
