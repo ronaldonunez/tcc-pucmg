@@ -3,7 +3,6 @@ from zato.server.service import Service
 from json import dumps
 from dao import *
 from peewee import *
-from enviomec import EnvioMEC
 
 class CadastraCurso(Service):
     
