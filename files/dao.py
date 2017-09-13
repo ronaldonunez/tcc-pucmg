@@ -28,12 +28,12 @@ class Aluno(BaseModel):
 class Historico(BaseModel):
 	disciplina = ForeignKeyField(Disciplina)
 	aluno = ForeignKeyField(Aluno)
-	nota = IntegerField()
+	nota = FloatField()
 
 if __name__ == '__main__':
 	try:
-		Aluno.create_table()
 		Historico.create_table()
+		Aluno.create_table()
 		Curso.create_table()
 		Disciplina.create_table()
 	except:
