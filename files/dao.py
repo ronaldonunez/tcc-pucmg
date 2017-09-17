@@ -30,8 +30,13 @@ class Historico(BaseModel):
 	aluno = ForeignKeyField(Aluno)
 	nota = FloatField()
 
+class Chave(BaseModel):
+	tipo = CharField()
+	valor = CharField()
+
 if __name__ == '__main__':
 	try:
+		Chave.create_table()
 		Historico.create_table()
 		Aluno.create_table()
 		Curso.create_table()
