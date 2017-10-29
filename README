@@ -1,0 +1,9 @@
+* Dependências
+- Python 2.7
+- Zato 2.0.8
+
+* Cadastra curso:
+curl http://localhost:8200/curso/cadastra -d '{"nome":"Ensino Medio","envio_mec":"True","disciplinas":[{"nome":"Quimica", "carga_horaria":60, "creditos":10, "professor":"Marcele Nunez"},{"nome":"Matematica", "carga_horaria":45, "creditos":5, "professor":"Adriano Nunez"}]}' ; echo
+
+* Gera histórico:
+curl -v http://localhost:11223/historico/gera --data '{"matricula": 12345}' -H "Content-Type: application/json" | base64 -d - > teste.pdf

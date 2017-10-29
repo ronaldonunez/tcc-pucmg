@@ -7,6 +7,7 @@ from reportlab.lib.utils import ImageReader
 from PIL import Image
 from json import dumps, loads
 from zato.common import DATA_FORMAT
+from base64 import b64encode
 
 def genera_pdf(aluno, qrcode):
     canva = canvas.Canvas(None)
@@ -64,5 +65,5 @@ class GeraHistorico(Service):
         pdf = genera_pdf(aluno, qrcode)
 
         # Retorna o pdf como resposta
+        self.response.payload = b64encode(pdf)
         self.response.content_type = 'application/pdf'
-        self.response.payload = pdf
