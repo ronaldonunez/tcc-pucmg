@@ -32,14 +32,15 @@ class Historico(BaseModel):
 
 class Chave(BaseModel):
 	tipo = CharField()
-	valor = CharField()
+	valor = TextField()
 
 if __name__ == '__main__':
 	try:
 		Chave.create_table()
-		Historico.create_table()
-		Aluno.create_table()
 		Curso.create_table()
+		Aluno.create_table()
+		Professor.create_table()
+		Historico.create_table()
 		Disciplina.create_table()
 	except:
 		pass
