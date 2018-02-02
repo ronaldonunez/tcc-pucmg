@@ -34,15 +34,19 @@ def genera_pdf(aluno, qrcode):
 
     return canva.getpdfdata()
 
+
 class GeraHistorico(Service):
-    
-    def handle_POST(self):
-        # Recebe dados via POST
-        dados_historico = self.request.payload
+
+    class SimpleIO:
+        input_required = ('matricula',)
+
+    def handle_GET(self):
+        # Recebe dados via GET
+        matricula = self.request.input.matricula
 
         # busca no BD
         aluno = {}
-        aluno_obj = Aluno.get(Aluno.matricula == dados_historico['matricula'])
+        aluno_obj = Aluno.get(Aluno.matricula == matricula)
         aluno['nome'] = aluno_obj.nome
         aluno['curso']= Curso.get(Curso.id == aluno_obj.curso).nome
 

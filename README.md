@@ -85,5 +85,5 @@ SQL> insert into historico (disciplina_id, aluno_id, nota) values ((select id fr
 
 Em seguida, gerar o pdf
 ```
-$ curl -v http://localhost:11223/historico/gera --data '{"matricula": 12345}' -H "Content-Type: application/json" | base64 -d - > teste.pdf
+$ curl -v http://localhost:11223/historico/gera?matricula=12345 | base64 -d - > teste.pdf
 ```
