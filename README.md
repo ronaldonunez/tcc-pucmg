@@ -53,6 +53,46 @@ $ sudo -u zato ln -s /usr/lib/python2.7/dist-packages/six-1.5.2-dist-info/ /opt/
 $ sudo -u zato ln -s /usr/local/lib/python2.7/dist-packages/six.py /opt/zato/2.0.8/zato_extra_paths/
 ```
 
+# API
+## Cadastra curso [/curso/cadastra]
+### Cadastra um curso e suas disciplinas [POST]
+* Requisita persistência de dados do curso (application/json)
+```
+{
+  "nome": "Ensino Medio",
+  "envio_mec": "False",
+  "disciplinas": [
+    {
+      "nome": "Quimica",
+      "carga_horaria": 60,
+      "creditos": 10,
+      "professor": "Marcele Nunez"
+    },
+    {
+      "nome": "Matematica",
+      "carga_horaria": 45,
+      "creditos": 5,
+      "professor": "Adriano Nunez"
+    }
+  ]
+}
+```
+
+* Resposta 200 (application/json)
+```
+{
+  "Persistido": "True",
+  "Enviado_MEC": "False"
+}
+```
+
+## Gera histórico de um aluno [/historico/gera<?maticula=>]
+### Solicita pdf do histórico de um aluno [GET]
+* Parâmetro
+** matricula (inteiro, obrigatório) - Número da matrícula de um aluno cadastrado.
+
+* Resposta 200 (application/pdf) pdf codificado em base64
+
 # Como testar
 ## Cadastra curso:
 Primeiro precisamos popular o banco com os professores: Adriano Nunez e Marcele Nunez
