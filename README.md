@@ -89,7 +89,7 @@ $ sudo -u zato ln -s /usr/local/lib/python2.7/dist-packages/six.py /opt/zato/2.0
 ## Gera histórico de um aluno [/historico/gera<?maticula=>]
 ### Solicita pdf do histórico de um aluno [GET]
 * Parâmetro
-** matricula (inteiro, obrigatório) - Número da matrícula de um aluno cadastrado.
+	* matricula (inteiro, obrigatório) - Número da matrícula de um aluno cadastrado.
 
 * Resposta 200 (application/pdf) pdf codificado em base64
 
