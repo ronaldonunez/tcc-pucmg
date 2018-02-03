@@ -6,7 +6,7 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 
-@app.route('/mec/envia', methods = ['GET'])
+@app.route('/mec/envia', methods = ['POST'])
 def mec_envia():
     resposta = {}
     resposta['recebido'] = 'True'
