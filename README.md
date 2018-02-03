@@ -55,6 +55,11 @@ $ sudo -u zato ln -s /usr/local/lib/python2.7/dist-packages/six.py /opt/zato/2.0
 
 # API
 ## Cadastra curso [/curso/cadastra]
+
+Cadastra um curso e suas disciplinas no banco de dados no servidor da
+aplicação. Possui a opção de enviar os mesmos dados para o
+serviço do MEC (envio_mec: <boolean>).
+
 ### Cadastra um curso e suas disciplinas [POST]
 * Requisita persistência de dados do curso (application/json)
 ```
@@ -88,6 +93,9 @@ $ sudo -u zato ln -s /usr/local/lib/python2.7/dist-packages/six.py /opt/zato/2.0
 
 ## Gera histórico de um aluno [/historico/gera<?maticula=>]
 ### Solicita pdf do histórico de um aluno [GET]
+Gera o histórico acadêmico de um aluno em formato PDF. A API retorna o pdf
+codificado em base64.
+
 * Parâmetro
 	* matricula (inteiro, obrigatório) - Número da matrícula de um aluno cadastrado.
 
